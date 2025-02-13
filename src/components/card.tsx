@@ -28,7 +28,7 @@ const Card = () => {
     setSubmitting(false)
   }
   return (
-    <div className="border border-gray-100 border-b-0 border-r-0 border-l-0 bg-whit rounded-2xl shadow-lg p-10 z-[1000] w-[100%] flex-[0] md:flex-[1] space-y-3 mt-20 md:mt-0 backdrop-blur-md">
+    <div className="border border-gray-100 border-b-0 border-r-0 border-l-0 bg-whit rounded-2xl shadow-lg p-10 z-[1000] w-[100%] flex-[0] md:flex-[1] space-y-3 mt-5 md:mt-0 backdrop-blur-md">
       <div className="space-y-3">
         <label htmlFor="url" className="font-medium flex items-center gap-1"><Link />Enter your long Url URL here</label>
         <input value={url} className='border border-gray-100 rounded-xl p-3 w-full focus:border-none active:border-none' onChange={onInputChange} alt="url-input" />

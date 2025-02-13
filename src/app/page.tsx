@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <div className="h-[100vh]">
       <Navbar />
-      <h1 className={`font-medium md:font-semibold text-center text-3xl mt-10 md:mt-0 font-geist`}>One short link, infinite possibilities</h1>
+      <h1 className={`font-medium md:font-semibold text-center text-2xl md:text-3xl mt-10 md:mt-0 font-geist`}>One short link, infinite possibilities</h1>
       {/* <h1 className={`font-medium md:font-semibold text-center text-3xl mt-10 md:mt-0 ${geistMono.className}`}>One short link, infinite possibilities</h1> */}
-      <p className="text-center text-lg text-gray-500/50">Create url links. Track what is and what is not</p>
+      <p className="text-center text-sm md:text-lg text-gray-500/50">Create url links. Track what is and what is not</p>
       <div className="m-auto w-[90%] md:w-[90%] h-[50%] flex flex-col md:flex-row items-center z-50 gap-3">
         <Card />
         <div className="flex-[1]">
