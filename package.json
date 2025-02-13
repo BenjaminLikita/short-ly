@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build && npx prisma generate && npx prisma db push",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "npx prisma generate && npx prisma db push"
+    "lint": "next lint"
   },
   "dependencies": {
     "@prisma/client": "^6.3.1",
