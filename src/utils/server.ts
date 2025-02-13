@@ -7,8 +7,8 @@ function isValidURL(url: string) {
   try {
     new URL(url)
     return true
-  } catch (_) {
-      return false
+  } catch (error) {
+    return false
   }
 }
 export const shortenUrl = async (url: string) => {
