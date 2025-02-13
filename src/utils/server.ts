@@ -18,7 +18,7 @@ export const shortenUrl = async (url: string) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
   const shortUrl = nanoid(6)
 
-  const urlExists = await db.url.findFirst({
+  const urlExists = await db.url.findUnique({
     where: {
       longUrl: url
     }
