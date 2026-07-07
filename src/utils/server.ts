@@ -3,24 +3,26 @@
 import { nanoid } from "nanoid"
 import { db } from "./db"
 
+const baseUrl = process.env.BASE_URL
+
 function isValidURL(url: string) {
   try {
     new URL(url)
     return true
-  } catch (error) {
-    console.error(error)
+  } catch {
     return false
   }
 }
+
 export const shortenUrl = async (url: string) => {
-  const isValid = isValidURL(url)
+  const trimmed = url.trim()
+  const isValid = isValidURL(trimmed)
   if(!isValid) return "Invalid URL"
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
   const shortUrl = nanoid(6)
 
   const urlExists = await db.url.findUnique({
     where: {
-      longUrl: url
+      longUrl: trimmed
     }
   })
 
@@ -28,7 +30,7 @@ export const shortenUrl = async (url: string) => {
   const createdUrl = await db.url.create({
     data: {
       shortUrl,
-      longUrl: url
+      longUrl: trimmed
     }
   })
 
@@ -36,7 +38,6 @@ export const shortenUrl = async (url: string) => {
 }
 
 export const getUrl = async (url: string) => {
-
   const urlExists = await db.url.findUnique({
     where: {
       shortUrl: url
@@ -44,5 +45,5 @@ export const getUrl = async (url: string) => {
   })
   if(!urlExists) return { error: "Url not found", success: false, data: null }
 
-  return { error: "Url not found", success: false, data: urlExists }
+  return { success: true, data: urlExists }
 }
